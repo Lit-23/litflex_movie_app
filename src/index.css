@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.padding {
+  padding-left: 50px;
+  font-weight: bold;
+  font-size: 40px;
+}
