@@ -20,23 +20,20 @@ const Popular = () => {
 
   const handleclick = () => {
     movies.map((movie) => {
-      // console.log(movie.title);
-      console.log(movie.backdrop_path);
+      console.log(movie.poster_path);
     })
   };
-  // thumbnail={movie.backdrop_path} 
+  
   return (
     <section>
       <h1 className='font-semibold text-[1.2rem]'>Popular Today</h1>
-      <div className='border-2'> 
+      <div className='flex gap-3 overflow-auto py-2'>
         {movies.map((movie) => (
-          <MovieCard key={movie.id} title={movie.title} thumbnail={movie.backdrop_path} rating={movie.vote_average} release_date={movie.release_date} />
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
-{/* 
-      <button onClick={handleclick}>click me</button> */}
-      <br />
-      <button onClick={handleclick}>IMG</button>
+ 
+      <button className='bg-blue-500 rounded-md p-2 font-bold mt-2 ml-2' onClick={handleclick}>click me</button>
     </section>
   )
 }
