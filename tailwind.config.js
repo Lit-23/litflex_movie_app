@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'bg-banner': "url(`https://image.tmdb.org/t/p/w500/${movie[randomIndex].poster_path}`)",
+      }
+    },
   },
   plugins: [],
 }

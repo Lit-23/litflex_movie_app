@@ -1,11 +1,10 @@
-import Popular from "./categories/Popular";
+import Popular from "./popular/Popular";
 
 
 export default function Main() {
 
   return (
     <main>
-      <h1>MAIN</h1>
       <Popular />
     </main>
   )
