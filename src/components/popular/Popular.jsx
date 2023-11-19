@@ -6,34 +6,30 @@ const API_URL = `https://api.themoviedb.org/3/discover/movie?include_adult=false
 
 const Popular = () => {
   const [movies, setMovies] = useState([]);
+  const randomIndex = Math.floor(Math.random() * movies.length);
+  console.log(randomIndex)
+
+  // const random = async Math.floor(Math.random() * movies.length);
+  // const randomIndex = await random;
 
   const searchMovies = async () => {
     const response = await fetch(`${API_URL}`);
     const data = await response.json();
 
     setMovies(data.results);
-    console.log(data.results);
   }
 
   useEffect(() => {
     searchMovies();
   }, []);
 
-  // const bannerMovie = async useEffect(() => {
-  //   const randomIndex = await Math.floor(Math.random() * movies.length);
-
-  //   console.log(movies[randomIndex]);
-  // }, [])
-
-  // console.log(movies[randomIndex].release_date.split('-').[0])
-  
   return (
     <>
-      {/* <Banner movie={bannerMovie} /> */}
-      <section className='px-4 mt-2'>
+      <Banner movie={movies[randomIndex]} />
+      <section className='px-5 mt-2'>
         <h1 className='font-bold text-[1.3rem]'>Popular Today</h1>
 
-        <div className='flex gap-3 py-4 overflow-auto'>
+        <div className='flex gap-3 pb-4 pt-2 overflow-auto'>
           {movies.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}

@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'bg-banner': "url(`https://image.tmdb.org/t/p/w500/${movie[randomIndex].poster_path}`)",
+        'bg-banner': "url(`https://image.tmdb.org/t/p/w500/${movie[randomIndex].backdrop_path}`)",
       }
     },
   },
