@@ -9,9 +9,6 @@ const Popular = () => {
   const randomIndex = Math.floor(Math.random() * movies.length);
   console.log(randomIndex)
 
-  // const random = async Math.floor(Math.random() * movies.length);
-  // const randomIndex = await random;
-
   const searchMovies = async () => {
     const response = await fetch(`${API_URL}`);
     const data = await response.json();
@@ -25,7 +22,8 @@ const Popular = () => {
 
   return (
     <>
-      <Banner movie={movies[randomIndex]} />
+      <Banner movies={movies} />
+
       <section className='px-5 mt-2'>
         <h1 className='font-bold text-[1.3rem]'>Popular Today</h1>
 
