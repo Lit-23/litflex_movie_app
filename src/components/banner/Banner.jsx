@@ -1,12 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Banner = ({ movies }) => {
-  const [movie, setMovie] = useState('');
-  const randomIndex = Math.floor(Math.random() * movies.length);
-
-  useEffect(() => {
-    setMovie(movies[randomIndex])
-  })
+const Banner = ({ movie }) => {
 
   return (
     <section className='p-6 mt-20 mb-5 mx-5 flex flex-1 gap-10 bg-black rounded-lg'>
