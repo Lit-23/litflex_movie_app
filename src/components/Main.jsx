@@ -13,3 +13,15 @@ export default function Main() {
     </main>
   )
 } 
+
+// get movies by SEARCH
+// `/search/movie?query=${searchQuery}&page=${page}&api_key=${apiKey}`;
+
+// get movies by Catergory
+// `movie/${genreOrCategoryName}?page=&${page}&api_key=${apiKey}`;
+
+// get movies by Genre
+// `discover/movie?with_genres=${genreOrCategoryName}&page=${page}&api_key=${apiKey}`;
+
+// get movies by Popular
+// `movie/popular?&page=${page}&api_key=${apiKey}`;
