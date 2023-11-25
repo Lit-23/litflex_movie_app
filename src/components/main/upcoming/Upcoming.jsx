@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
-import MovieList from '../movieList/MovieList';
+import MovieList from '../../movieList/MovieList';
 
-const API_URL = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200&api_key=a20b0851681cb1cbe3ad6e2eafb80bc8`;
+const API_URL = `https://api.themoviedb.org/3/movie/upcoming?page=1&api_key=a20b0851681cb1cbe3ad6e2eafb80bc8`;
 
-const TopRated = () => {
+const Upcoming = () => {
   const [movies, setMovies] = useState([]);
-  // const randomIndex = Math.floor(Math.random() * movies.length);
 
   const searchMovies = async () => {
     const response = await fetch(`${API_URL}`);
     const data = await response.json();
 
     setMovies(data.results);
+    console.log(data)
   }
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const TopRated = () => {
 
   return (
     <section className='px-5 mt-5'>
-      <h1 className='font-bold text-[1.3rem]'>Top Rated</h1>
+      <h1 className='font-bold text-[1.3rem]'>Upcoming</h1>
 
       <div className='flex gap-3 pb-4 pt-2 overflow-auto'>
         {movies.map((movie) => (
@@ -31,5 +31,5 @@ const TopRated = () => {
   )
 }
 
-export default TopRated
+export default Upcoming
 
