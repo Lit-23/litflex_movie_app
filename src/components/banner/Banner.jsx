@@ -17,7 +17,7 @@ const Banner = ({ movie }) => {
             <span className='text-gray-500 font-semibold'>({movie.release_date.split('-')[0]})</span>
           </h1>
           <div className='font-bold text-gray-500'>
-            <span>{movie.release_date}({movie.original_language}) • </span>
+            <span>{movie.release_date}({(movie.original_language).toUpperCase()}) • </span>
             <span>⭐({movie.vote_average})</span>
           </div>
         </div>

@@ -1,6 +1,6 @@
-const MovieList = ({ movie }) => {
+const MovieCard = ({ movie }) => {
   return (
-    <div className='min-w-[10rem] bg-black rounded-md'>
+    <div className='max-w-[10rem] bg-black rounded-md'>
       <img 
         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
         alt={movie.title}
@@ -17,4 +17,4 @@ const MovieList = ({ movie }) => {
   )
 }
 
-export default MovieList
+export default MovieCard

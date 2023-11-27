@@ -14,8 +14,6 @@ const Upcoming = () => {
     setMovies(data.results);
   }
 
-  console.log(movies)
-
   useEffect(() => {
     searchMovies();
   }, []);
