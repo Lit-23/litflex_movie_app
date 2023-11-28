@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MovieList from '../../movieList/MovieList';
 import Banner from '../../banner/Banner';
-import Genres from '../../genres/Genres';
+import GenresAndCategories from '../../genres/GenresAndCategories';
+import { caretRight } from '../../../assets/icons';
 
 const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&page=1&api_key=a20b0851681cb1cbe3ad6e2eafb80bc8`;
 
 const Popular = () => {
   const [movies, setMovies] = useState([]);
-  const randomIndex = Math.floor(Math.random() * movies.length);
+  // const randomIndex = Math.floor(Math.random() * movies.length);
   // console.log(randomIndex)
 
   const searchMovies = async () => {
@@ -24,12 +25,12 @@ const Popular = () => {
   }, []);
 
   return (
-    <>
+    <section className='mt-20'>
       {/* <Banner movie={movies[randomIndex]} /> */}
-      <Genres />
+      <GenresAndCategories />
       {/* <MovieCard movie={movies[randomIndex]} /> */}
 
-      <section className='px-5 mt-5'>
+      <div className='px-5 mt-5'>
         <Link to='/popular'>
           <h1 className='font-bold text-[1.3rem]'>What's Popular</h1>
         </Link>
@@ -39,11 +40,14 @@ const Popular = () => {
             <MovieList key={movie.id} movie={movie} />
           ))}
           <Link to='/popular'>
-            <button className='text-white bg-black rounded-md p-2 w-[10rem] h-full'>View more...</button>
+            <button className='font-bold w-36 hover:opacity-75 flex justify-center items-center'>
+              View more
+              <img src={caretRight} alt="right-arrow" />
+            </button>
           </Link>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
 

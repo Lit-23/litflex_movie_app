@@ -3,19 +3,18 @@ import MovieCard from '../../movieCard/MovieCard';
 import Pagination from '../../pagination/Pagination';
 import GenresAndCategories from '../../genres/GenresAndCategories';
 
-const Popular = () => {
+const SearchTopRated = () => {
   const [page, setPage] = useState(1);
 
   const [data, setData] = useState([]);
   const [movies, setMovies] = useState([]);
 
-  const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&page=${page}&api_key=a20b0851681cb1cbe3ad6e2eafb80bc8`;
+  const API_URL = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200&api_key=a20b0851681cb1cbe3ad6e2eafb80bc8`;
   const searchMovies = async () => {
     const response = await fetch(`${API_URL}`);
     const data = await response.json();
     setData(data);
     setMovies(data.results)
-    console.log(data)
   }
 
   useEffect(() => {
@@ -36,5 +35,5 @@ const Popular = () => {
   )
 }
 
-export default Popular
+export default SearchTopRated
 
