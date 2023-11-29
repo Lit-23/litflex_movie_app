@@ -9,15 +9,14 @@ const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.
 
 const Popular = () => {
   const [movies, setMovies] = useState([]);
-  // const randomIndex = Math.floor(Math.random() * movies.length);
-  // console.log(randomIndex)
+  const randomIndex = Math.floor(Math.random() * movies.length);
+  console.log(randomIndex)
 
   const searchMovies = async () => {
     const response = await fetch(`${API_URL}`);
     const data = await response.json();
 
     setMovies(data.results);
-    // console.log(data)
   }
 
   useEffect(() => {
@@ -26,9 +25,8 @@ const Popular = () => {
 
   return (
     <section className='mt-20'>
-      {/* <Banner movie={movies[randomIndex]} /> */}
-      <GenresAndCategories />
-      {/* <MovieCard movie={movies[randomIndex]} /> */}
+      {randomIndex !== 0 && <Banner movie={movies[randomIndex]} />}
+      {/* <GenresAndCategories /> */}
 
       <div className='px-5 mt-5'>
         <Link to='/popular'>

@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <section className='mt-5 p-10 text-white bg-black text-center'>
       <div className="flex flex-col mb-5">
         <div className="mb-5">
-          <h1 className="font-bold text-[2rem]">LitFlix</h1>
+          <Link to='/'>
+            <h1 className="font-bold text-[2rem]">LitFlix</h1>
+          </Link>
         </div>
 
         <div className="flex justify-center gap-10">
