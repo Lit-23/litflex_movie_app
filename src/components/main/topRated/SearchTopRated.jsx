@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import MovieCard from '../../movieCard/MovieCard';
 import Pagination from '../../pagination/Pagination';
-import GenresAndCategories from '../../genres/GenresAndCategories';
+import Dropdown from '../../genres/Dropdown';
 
 const SearchTopRated = () => {
   const [page, setPage] = useState(1);
+  const [currentCategory, setCurrentCategory] = useState('Top Rated');
 
   const [data, setData] = useState([]);
   const [movies, setMovies] = useState([]);
@@ -23,7 +24,7 @@ const SearchTopRated = () => {
 
   return (
     <section className='px-5 mt-20'>
-      <GenresAndCategories />
+      <Dropdown currentCategory={currentCategory} setCurrentCategory={setCurrentCategory} />
 
       <div className='flex justify-center flex-wrap gap-10 pb-4 pt-4'>
         {movies.map((movie) => (

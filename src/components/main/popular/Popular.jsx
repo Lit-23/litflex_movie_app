@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MovieList from '../../movieList/MovieList';
 import Banner from '../../banner/Banner';
-import GenresAndCategories from '../../genres/GenresAndCategories';
+import Dropdown from '../../genres/Dropdown';
 import { caretRight } from '../../../assets/icons';
 
 const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&page=1&api_key=a20b0851681cb1cbe3ad6e2eafb80bc8`;
@@ -10,7 +10,6 @@ const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.
 const Popular = () => {
   const [movies, setMovies] = useState([]);
   const randomIndex = Math.floor(Math.random() * movies.length);
-  console.log(randomIndex)
 
   const searchMovies = async () => {
     const response = await fetch(`${API_URL}`);
@@ -26,7 +25,7 @@ const Popular = () => {
   return (
     <section className='mt-20'>
       {randomIndex !== 0 && <Banner movie={movies[randomIndex]} />}
-      {/* <GenresAndCategories /> */}
+      {/* <Dropdown /> */}
 
       <div className='px-5 mt-5'>
         <Link to='/popular'>
