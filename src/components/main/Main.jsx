@@ -12,13 +12,4 @@ export default function Main() {
       <Upcoming />
     </main>
   )
-} 
-
-// get movies by SEARCH
-// `/search/movie?query=${searchQuery}&page=${page}&api_key=${apiKey}`;
-
-// get movies by Popular
-// `movie/popular?&page=${page}&api_key=${apiKey}`;
-
-// upcoming
-// https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1
+}

@@ -45,7 +45,9 @@ const Dropdown = ({ currentCategory, setCurrentCategory }) => {
                 className="p-4 font-[500] tracking-wider hover:bg-black duration-300 hover:text-white"
                 onClick={handleCategory}
                 key='popular'
-              >Popular</h2>
+              >
+                Popular
+              </h2>
             </Link>
           }
           {
@@ -55,7 +57,9 @@ const Dropdown = ({ currentCategory, setCurrentCategory }) => {
                 className="p-4 font-[500] tracking-wider hover:bg-black duration-300 hover:text-white"
                 onClick={handleCategory}
                 key='top-rated'
-              >Top Rated</h2>
+              >
+                Top Rated
+              </h2>
             </Link>
           }
           {
@@ -65,13 +69,24 @@ const Dropdown = ({ currentCategory, setCurrentCategory }) => {
                 className="p-4 font-[500] tracking-wider hover:bg-black duration-300 hover:text-white"
                 onClick={handleCategory}
                 key='upcoming'
-              >Upcoming</h2>
+              >
+                Upcoming
+              </h2>
             </Link>
           }
 
           {genres.map((genre, i) => (
-            <Link>
-              <h2 className="p-4 font-[500] tracking-wider hover:bg-black duration-300 hover:text-white" key={genre.id}>{genre.name}</h2>
+            <Link to={`/${genre.name}`}>
+            {
+              currentCategory !== genre.name &&
+                <h2 
+                  className="p-4 font-[500] tracking-wider hover:bg-black duration-300 hover:text-white" 
+                  onClick={handleCategory}
+                  key={genre.id}
+                >
+                  {genre.name}
+                </h2>
+            }
             </Link>
           ))}
         </div>
