@@ -1,16 +1,21 @@
 import { useState, useEffect } from 'react';
 import Pagination from '../pagination/Pagination';
 import Dropdown from '../genres/Dropdown';
-import MovieCard from '../movieCard/MovieCard';
+import MovieGrid from '../movieGrid/MovieGrid';
 
-const SearchMovies = () => {
+// { query, setQuery }
+// ${process.VITE_TMDB_KEY}
+
+const SearchMovie = () => {
   const [page, setPage] = useState(1);
   const [currentCategory, setCurrentCategory] = useState('Categories');
 
   const [data, setData] = useState([]);
   const [movies, setMovies] = useState([]);
 
-  const API_URL = `https://api.themoviedb.org/3/search/movie?query=spiderman&page=${page}&api_key=a20b0851681cb1cbe3ad6e2eafb80bc8`;
+  const query = 'one piece';
+
+  const API_URL = `https://api.themoviedb.org/3/search/movie?query=${query}&page=${page}&api_key=a20b0851681cb1cbe3ad6e2eafb80bc8`;
   const searchMovies = async () => {
     const response = await fetch(`${API_URL}`);
     const data = await response.json();
@@ -28,7 +33,7 @@ const SearchMovies = () => {
 
       <div className='flex justify-center flex-wrap gap-10 pb-4 pt-4'>
         {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <MovieGrid key={movie.id} movie={movie} />
         ))}
       </div>
       <Pagination currentPage={page} setPage={setPage} totalPage={data.total_pages} />
@@ -36,4 +41,4 @@ const SearchMovies = () => {
   )
 }
 
-export default SearchMovies
+export default SearchMovie

@@ -33,6 +33,9 @@ import Thriller from "./components/searchMovie/searchByGenre/Thriller";
 import War from "./components/searchMovie/searchByGenre/War";
 import Western from "./components/searchMovie/searchByGenre/Western";
 
+import { useState } from "react";
+import MovieCard from "./components/movieCard/MovieCard";
+
 // import {
 //   Action,
 //   Adventure,
@@ -57,6 +60,7 @@ import Western from "./components/searchMovie/searchByGenre/Western";
 
 
 function App() {
+  const [ query, setQuery ] = useState();
 
   return (
     <BrowserRouter>
@@ -69,9 +73,14 @@ function App() {
         <Route path='/popular' element={<SearchPopular />} />
         <Route path='/top-rated' element={<SearchTopRated />} />
         <Route path='/upcoming' element={<SearchUpcoming />} />
+
+        {/* route for specific movie card */}
+        <Route path='/movie-card' element={<MovieCard />} />
+
+        {/* Search specific movies */}
         <Route path='/search-movies' element={<SearchMovies />} />
 
-        {/* Genres */}
+        {/* Search by Genres */}
         <Route path='/Action' element={<Action />} />
         <Route path='/Adventure' element={<Adventure />} />
         <Route path='/Animation' element={<Animation />} />
@@ -91,8 +100,6 @@ function App() {
         <Route path='/Thriller' element={<Thriller />} />
         <Route path='/War' element={<War />} />
         <Route path='/Western' element={<Western />} />
-
-
       </Routes>
 
       {/* footer */}

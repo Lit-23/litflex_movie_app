@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import MovieCard from '../../movieCard/MovieCard';
+import MovieGrid from '../../movieGrid/MovieGrid';
 import Pagination from '../../pagination/Pagination';
 import Dropdown from '../../genres/Dropdown';
 
@@ -28,7 +28,7 @@ const SearchUpcoming = () => {
 
       <div className='flex justify-center flex-wrap gap-10 pb-4 pt-4'>
         {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <MovieGrid key={movie.id} movie={movie} />
         ))}
       </div>
       <Pagination currentPage={page} setPage={setPage} totalPage={data.total_pages} />
