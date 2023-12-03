@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MovieList from '../../movieList/MovieList';
 import Banner from '../../banner/Banner';
-import Dropdown from '../../genres/Dropdown';
+import Dropdown from '../../dropdown/Dropdown';
 import { caretRight } from '../../../assets/icons';
 
 const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&page=1&api_key=a20b0851681cb1cbe3ad6e2eafb80bc8`;
 
 const Popular = () => {
+  const [currentCategory, setCurrentCategory] = useState('Category');
+
   const [movies, setMovies] = useState([]);
   const randomIndex = Math.floor(Math.random() * movies.length);
 
@@ -25,7 +27,9 @@ const Popular = () => {
   return (
     <section className='mt-20'>
       {randomIndex !== 0 && <Banner movie={movies[randomIndex]} />}
-      {/* <Dropdown /> */}
+      <div className='flex justify-start'>
+        <Dropdown currentCategory={currentCategory} setCurrentCategory={setCurrentCategory} />
+      </div>
 
       <div className='px-5 mt-5'>
         <Link to='/popular'>

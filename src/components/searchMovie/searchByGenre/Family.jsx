@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Pagination from '../../pagination/Pagination';
-import Dropdown from '../../genres/Dropdown';
+import Dropdown from '../../dropdown/Dropdown';
 import MovieGrid from '../../movieGrid/MovieGrid';
 
 const Family = () => {

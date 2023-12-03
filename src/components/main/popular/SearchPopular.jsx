@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import MovieGrid from '../../movieGrid/MovieGrid';
 import Pagination from '../../pagination/Pagination';
-import Dropdown from '../../genres/Dropdown';
+import Dropdown from '../../dropdown/Dropdown';
 import { Link } from 'react-router-dom';
 import MovieCard from '../../movieCard/MovieCard';
 

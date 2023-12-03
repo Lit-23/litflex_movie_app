@@ -35,6 +35,8 @@ import Western from "./components/searchMovie/searchByGenre/Western";
 
 import { useState } from "react";
 import MovieCard from "./components/movieCard/MovieCard";
+import SignUp from "./components/authentication/SignUp";
+import SignIn from "./components/authentication/SignIn";
 
 // import {
 //   Action,
@@ -73,6 +75,10 @@ function App() {
         <Route path='/popular' element={<SearchPopular />} />
         <Route path='/top-rated' element={<SearchTopRated />} />
         <Route path='/upcoming' element={<SearchUpcoming />} />
+
+        {/* Authentication */}
+        <Route path='/sign-up' element={<SignUp />} />
+        <Route path='/sign-in' element={<SignIn />} />
 
         {/* route for specific movie card */}
         <Route path='/movie-card' element={<MovieCard />} />

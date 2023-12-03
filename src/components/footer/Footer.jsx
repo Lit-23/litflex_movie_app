@@ -14,8 +14,12 @@ const Footer = () => {
           <div>
             <h2 className="font-bold text-[1.2rem]">My Account</h2>
             <ul>
-              <li className="hover:underline text-gray-400 cursor-pointer">Register</li>
-              <li className="hover:underline text-gray-400 cursor-pointer">Login</li>
+              <Link to='/sign-up'>
+                <li className="hover:underline text-gray-400 cursor-pointer">Register</li>
+              </Link>
+              <Link to='/sign-in'>
+                <li className="hover:underline text-gray-400 cursor-pointer">Login</li>
+              </Link>
             </ul>
           </div>
 
