@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SearchMovie from '../searchMovie/SearchMovie'
+// import SearchMovie from '../searchMovie/SearchMovie'
 
 const Header = () => {
   return (
