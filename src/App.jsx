@@ -33,7 +33,6 @@ import Thriller from "./components/searchMovie/searchByGenre/Thriller";
 import War from "./components/searchMovie/searchByGenre/War";
 import Western from "./components/searchMovie/searchByGenre/Western";
 
-import { useState } from "react";
 import MovieCard from "./components/movieCard/MovieCard";
 import SignUp from "./components/authentication/SignUp";
 import SignIn from "./components/authentication/SignIn";
@@ -62,8 +61,6 @@ import SignIn from "./components/authentication/SignIn";
 
 
 function App() {
-  const [ query, setQuery ] = useState();
-
   return (
     <BrowserRouter>
       {/* header */}
