@@ -1,17 +1,80 @@
-import { Link } from 'react-router-dom'
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import firebaseApp from './firebaseConfig';
+import { useState } from "react";
 
 const SignUp = () => {
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    if(firstname !== '' && lastname !== '' && email !== '' && password !== '' && confirmPassword !== '' && password === confirmPassword) {
+      const auth = getAuth(firebaseApp);
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed up 
+          const user = userCredential.user;
+          updateProfile(auth.currentUser, {
+            displayName: `${firstname} ${lastname}`
+          })
+          // ...
+          console.log('successfully created an account!');
+          console.log(user);
+        })
+        .catch((error) => {
+          console.log(error);
+          // ..
+        });
+    } else{
+      console.log('missing or incorrect credentials!')
+    }
+  }
+
   return (
     <section className='flex justify-center pt-24 pb-10 px-5 min-h-[100vh]'>
       <div className='w-[550px] max-sm:w-full'>
         <h1 className='text-center font-bold tracking-wider text-2xl pt-5 pb-2'>Sign Up</h1>
-        <form className='flex flex-col'>
-          <input className='bg-gray-200 p-3 mx-5 my-3 rounded-md' type="text" placeholder='First Name' name="sign-up" />
-          <input className='bg-gray-200 p-3 mx-5 my-3 rounded-md' type="text" placeholder='Last Name' name="sign-up" />
-          <input className='bg-gray-200 p-3 mx-5 my-3 rounded-md' type="email" placeholder='Email' name="sign-up" />
-          <input className='bg-gray-200 p-3 mx-5 my-3 rounded-md' type="password" placeholder='Password' name="sign-up" />
+        <form className='flex flex-col' onSubmit={handleRegister}>
+          <input 
+            className='bg-gray-200 p-3 mx-5 my-3 rounded-md' 
+            type="text" 
+            placeholder='First Name' 
+            value={firstname} 
+            onChange={(e) => setFirstname(e.target.value)}
+          />
+          <input 
+            className='bg-gray-200 p-3 mx-5 my-3 rounded-md' 
+            type="text" 
+            placeholder='Last Name'  
+            value={lastname} 
+            onChange={(e) => setLastname(e.target.value)}
+          />
+          <input 
+            className='bg-gray-200 p-3 mx-5 my-3 rounded-md' 
+            type="email" 
+            placeholder='Email' 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input 
+            className='bg-gray-200 p-3 mx-5 my-3 rounded-md' 
+            type="password" 
+            placeholder='Password' 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <input 
+            className='bg-gray-200 p-3 mx-5 my-3 rounded-md' 
+            type="password" 
+            placeholder='Confirm Password' 
+            value={confirmPassword} 
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
           <button 
-            type='submit'
+            type="submit"
             className='mx-5 mt-2 p-3 rounded-md bg-black text-white'
           >
             Sign Up
@@ -19,7 +82,7 @@ const SignUp = () => {
         </form>
         <p className='p-5 font-[500]'>
           Already have an Account? 
-          <Link to='/sign-in' className='text-blue-700 hover:underline'> Sign In</Link>
+          <button className='text-blue-700 hover:underline'> Sign In</button>
         </p>
       </div>
     </section> 
