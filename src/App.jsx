@@ -36,29 +36,7 @@ import Western from "./components/searchMovie/searchByGenre/Western";
 import MovieCard from "./components/movieCard/MovieCard";
 import SignUp from "./components/authentication/SignUp";
 import SignIn from "./components/authentication/SignIn";
-
-// import {
-//   Action,
-//   Adventure,
-//   Animation,
-//   Comedy,
-//   Crime,
-//   Documentary,
-//   Drama,
-//   Family,
-//   Fantasy,
-//   History,
-//   Horror,
-//   Music,
-//   Mystery,
-//   Romance,
-//   ScienceFiction,
-//   TvMovie,
-//   Thriller,
-//   War,
-//   Western
-// } from "./components/searchMovie/searchByGenre/index";
-
+import About from "./components/about/About";
 
 function App() {
   return (
@@ -74,6 +52,7 @@ function App() {
         <Route path='/upcoming' element={<SearchUpcoming />} />
 
         {/* Authentication */}
+        <Route path='/about' element={<About />} />
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/sign-in' element={<SignIn />} />
 

@@ -10,10 +10,12 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
+    setLoading(true);
     if(firstname !== '' && lastname !== '' && email !== '' && password !== '' && confirmPassword !== '' && password === confirmPassword) {
       const auth = getAuth(firebaseApp);
       createUserWithEmailAndPassword(auth, email, password)
@@ -33,10 +35,12 @@ const SignUp = () => {
           const errorMessage = error.message;
           console.log(errorMessage);
           setError(errorMessage);
+          setLoading(false);
           // ..
         });
     } else{
       setError('Incorrect or missing credentials!');
+      setLoading(false);
     }
   }
 
@@ -80,12 +84,16 @@ const SignUp = () => {
             value={confirmPassword} 
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <p className="text-red-600 text-sm mx-5 my-2">{error}</p>
+          
+          {
+            error && <p className="text-red-600 text-sm mx-5 my-2">{error}</p>
+          }
+
           <button 
             type="submit"
             className='mx-5 mt-2 p-3 rounded-md bg-black text-white'
           >
-            Sign Up
+            { loading ? 'Loading...' : 'Sign Up' }
           </button>
         </form>
         <p className='p-5 font-[500]'>
