@@ -1,13 +1,45 @@
-import { Link } from 'react-router-dom'
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import firebaseApp from './firebaseConfig';
+
 
 const SignIn = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const handleSignin = (e) => {
+    e.preventDefault();
+    if(email !== '' && password !== '') {
+      const auth = getAuth(firebaseApp);
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          console.log('successfully signed in!')
+          // ...
+          navigate('/');
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          setError(errorMessage);
+        });
+    } else {
+      setError('Incorrect or missing credentials!');
+    }
+  }
+
   return (
     <section className='flex justify-center pt-28 px-5 min-h-[100vh]'>
       <div className='w-[550px] max-sm:w-full'>
         <h1 className='text-center font-bold tracking-wider text-2xl pt-5 pb-2'>Sign In</h1>
-        <form className='flex flex-col'>
-          <input className='bg-gray-200 p-3 mx-5 my-3 rounded-md' type="email" placeholder='Email' name="sign-up" />
-          <input className='bg-gray-200 p-3 mx-5 my-3 rounded-md' type="password" placeholder='Password' name="sign-up" />
+        <form onSubmit={handleSignin} className='flex flex-col'>
+          <input className='bg-gray-200 p-3 mx-5 my-3 rounded-md' type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+          <input className='bg-gray-200 p-3 mx-5 my-3 rounded-md' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+          <p className="text-red-600 text-sm mx-5 my-2">{error}</p>
           <button 
             type='submit'
             className='mx-5 mt-2 p-3 rounded-md bg-black text-white'

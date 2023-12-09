@@ -1,6 +1,7 @@
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import firebaseApp from './firebaseConfig';
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [firstname, setFirstname] = useState('');
@@ -8,6 +9,8 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -23,13 +26,17 @@ const SignUp = () => {
           // ...
           console.log('successfully created an account!');
           console.log(user);
+
+          navigate('/sign-in');
         })
         .catch((error) => {
-          console.log(error);
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          setError(errorMessage);
           // ..
         });
     } else{
-      console.log('missing or incorrect credentials!')
+      setError('Incorrect or missing credentials!');
     }
   }
 
@@ -73,6 +80,7 @@ const SignUp = () => {
             value={confirmPassword} 
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
+          <p className="text-red-600 text-sm mx-5 my-2">{error}</p>
           <button 
             type="submit"
             className='mx-5 mt-2 p-3 rounded-md bg-black text-white'
@@ -82,7 +90,7 @@ const SignUp = () => {
         </form>
         <p className='p-5 font-[500]'>
           Already have an Account? 
-          <button className='text-blue-700 hover:underline'> Sign In</button>
+          <Link to='/sign-in' className='text-blue-700 hover:underline'> Sign In</Link>
         </p>
       </div>
     </section> 
