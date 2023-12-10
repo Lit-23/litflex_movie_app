@@ -45,7 +45,7 @@ const SignUp = () => {
   }
 
   return (
-    <section className='flex justify-center pt-24 pb-10 px-5 min-h-[100vh]'>
+    <section className='flex justify-center pt-24 pb-10 px-5 min-h-[90vh]'>
       <div className='w-[550px] max-sm:w-full'>
         <h1 className='text-center font-bold tracking-wider text-2xl pt-5 pb-2'>Sign Up</h1>
         <form className='flex flex-col' onSubmit={handleRegister}>

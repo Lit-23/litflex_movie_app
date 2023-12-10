@@ -5,28 +5,14 @@ import Upcoming from "./upcoming/Upcoming";
 
 import { useEffect, useState } from "react";
 
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import firebaseApp from '../authentication/firebaseConfig';
+import authStateObserver from '../authentication/authStateObserver'
 
 export default function Main() {
   const [authenticated, setAuthenticated] = useState(false);
-  // const [userProperties, setUserProperties] = useState({});
-  // const [userName, setUserName] = useState('');
+  const [userDisplayName, setUserDisplayName] = useState('');
 
   useEffect(() => {
-    const auth = getAuth(firebaseApp);
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
-        const uid = user.uid;
-        console.log(user)
-        // ...
-        setAuthenticated(true);
-        // setUserProperties(user);
-        // setUserName(user.displayName);
-      }
-    });
+    authStateObserver(setAuthenticated, setUserDisplayName);
   }, [])
 
   return (
@@ -35,7 +21,7 @@ export default function Main() {
         !authenticated 
           ? <About /> 
           : <>
-              <p></p>
+              <h2 className="text-2xl px-5 font-[500] mt-20">Welcome {userDisplayName.split(' ')[0]}, enjoy watching!</h2>
               <Popular />
               <TopRated />
               <Upcoming />

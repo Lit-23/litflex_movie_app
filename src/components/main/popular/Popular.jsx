@@ -25,7 +25,7 @@ const Popular = () => {
   }, []);
 
   return (
-    <section className='mt-20'>
+    <section className='mt-2'>
       {randomIndex !== 0 && <Banner movie={movies[randomIndex]} />}
       <div className='flex justify-start'>
         <Dropdown currentCategory={currentCategory} setCurrentCategory={setCurrentCategory} />

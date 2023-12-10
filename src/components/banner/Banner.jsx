@@ -1,7 +1,7 @@
 const Banner = ({ movie }) => {
 
   return (
-    <section className='p-6 mt-24 mb-14 mx-5 flex flex-1 gap-10 bg-black rounded-lg'>
+    <section className='p-6 mb-5 mx-5 flex flex-1 gap-10 bg-black rounded-lg'>
       <div>
         <img 
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

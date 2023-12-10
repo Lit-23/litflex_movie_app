@@ -37,7 +37,7 @@ const SignIn = () => {
   }
 
   return (
-    <section className='flex justify-center pt-28 px-5 min-h-[100vh]'>
+    <section className='flex justify-center pt-28 px-5 min-h-[90vh]'>
       <div className='w-[550px] max-sm:w-full'>
         <h1 className='text-center font-bold tracking-wider text-2xl pt-5 pb-2'>Sign In</h1>
         <form onSubmit={handleSignin} className='flex flex-col'>
