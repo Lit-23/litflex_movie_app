@@ -13,12 +13,12 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
     if(firstname !== '' && lastname !== '' && email !== '' && password !== '' && confirmPassword !== '' && password === confirmPassword) {
       const auth = getAuth(firebaseApp);
-      createUserWithEmailAndPassword(auth, email, password)
+      await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed up 
           const user = userCredential.user;

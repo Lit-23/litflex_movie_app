@@ -8,7 +8,7 @@ import { caretRight } from '../../../assets/icons';
 const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&page=1&api_key=a20b0851681cb1cbe3ad6e2eafb80bc8`;
 
 const Popular = () => {
-  const [currentCategory, setCurrentCategory] = useState('Category');
+  const [currentCategory, setCurrentCategory] = useState('Categories');
 
   const [movies, setMovies] = useState([]);
   const randomIndex = Math.floor(Math.random() * movies.length);

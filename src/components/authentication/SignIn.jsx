@@ -11,12 +11,12 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSignin = (e) => {
+  const handleSignin = async (e) => {
     e.preventDefault();
     setLoading(true);
     if(email !== '' && password !== '') {
       const auth = getAuth(firebaseApp);
-      signInWithEmailAndPassword(auth, email, password)
+      await signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;

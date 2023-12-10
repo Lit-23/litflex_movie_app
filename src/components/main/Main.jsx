@@ -21,7 +21,7 @@ export default function Main() {
         !authenticated 
           ? <About /> 
           : <>
-              <h2 className="text-2xl px-5 font-[500] mt-20">Welcome {userDisplayName.split(' ')[0]}, enjoy watching!</h2>
+              <h2 className="text-2xl mb-3 px-5 font-[500] mt-20">Welcome {userDisplayName.split(' ')[0]}, enjoy watching!</h2>
               <Popular />
               <TopRated />
               <Upcoming />
