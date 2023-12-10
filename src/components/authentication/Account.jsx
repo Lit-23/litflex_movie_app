@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { getAuth, signOut } from "firebase/auth";
+import firebaseApp from './firebaseConfig';
 
 const Account = ({ userDisplayName }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +13,15 @@ const Account = ({ userDisplayName }) => {
   };
 
   function handleLogout() {
-    navigate('/sign-in');
+    const auth = getAuth(firebaseApp);
+    
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      navigate('/sign-in');
+    }).catch((error) => {
+      // An error happened.
+      console.log(error)
+    });
   }
 
   return (
