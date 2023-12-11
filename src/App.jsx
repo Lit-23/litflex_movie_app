@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from 'react';
 
-import Footer from "./components/footer/Footer";
-import Header from "./components/header/Header";
+// Layout
+import Layout from "./Layout";
+
 import Main from "./components/main/Main";
 
 // Search Specific Movies
@@ -39,53 +41,58 @@ import SignIn from "./components/authentication/SignIn";
 import About from "./components/about/About";
 
 function App() {
+  // const [isSearching, setIsSearching] = useState(false);
+  // useEffect(()=>{setIsSearching(false)}, [])
+
   return (
     <BrowserRouter>
       {/* header */}
-      <Header />
+      {/* <Header isSearching={isSearching} setIsSearching={setIsSearching}/> */}
 
       {/* routes */}
       <Routes>
-        <Route path='/' element={<Main />} />
-        <Route path='/popular' element={<SearchPopular />} />
-        <Route path='/top-rated' element={<SearchTopRated />} />
-        <Route path='/upcoming' element={<SearchUpcoming />} />
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Main />} />
+          <Route path='/popular' element={<SearchPopular />} />
+          <Route path='/top-rated' element={<SearchTopRated />} />
+          <Route path='/upcoming' element={<SearchUpcoming />} />
 
-        {/* Authentication */}
-        <Route path='/about' element={<About />} />
-        <Route path='/sign-up' element={<SignUp />} />
-        <Route path='/sign-in' element={<SignIn />} />
+          {/* Authentication */}
+          <Route path='/about' element={<About />} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/sign-in' element={<SignIn />} />
 
-        {/* route for specific movie card */}
-        <Route path='/movie-card' element={<MovieCard />} />
+          {/* route for specific movie card */}
+          <Route path='/movie-card' element={<MovieCard />} />
 
-        {/* Search specific movies */}
-        <Route path='/search-movies' element={<SearchMovies />} />
+          {/* Search specific movies */}
+          <Route path='/search-movies' element={<SearchMovies />} />
 
-        {/* Search by Genres */}
-        <Route path='/Action' element={<Action />} />
-        <Route path='/Adventure' element={<Adventure />} />
-        <Route path='/Animation' element={<Animation />} />
-        <Route path='/Comedy' element={<Comedy />} />
-        <Route path='/Crime' element={<Crime />} />
-        <Route path='/Documentary' element={<Documentary />} />
-        <Route path='/Drama' element={<Drama />} />
-        <Route path='/Family' element={<Family />} />
-        <Route path='/Fantasy' element={<Fantasy />} />
-        <Route path='/History' element={<History />} />
-        <Route path='/Horror' element={<Horror />} />
-        <Route path='/Music' element={<Music />} />
-        <Route path='/Mystery' element={<Mystery />} />
-        <Route path='/Romance' element={<Romance />} />
-        <Route path='/Science Fiction' element={<ScienceFiction />} />
-        <Route path='/TV Movie' element={<TvMovie />} />
-        <Route path='/Thriller' element={<Thriller />} />
-        <Route path='/War' element={<War />} />
-        <Route path='/Western' element={<Western />} />
+          {/* Search by Genres */}
+          <Route path='/Action' element={<Action />} />
+          <Route path='/Adventure' element={<Adventure />} />
+          <Route path='/Animation' element={<Animation />} />
+          <Route path='/Comedy' element={<Comedy />} />
+          <Route path='/Crime' element={<Crime />} />
+          <Route path='/Documentary' element={<Documentary />} />
+          <Route path='/Drama' element={<Drama />} />
+          <Route path='/Family' element={<Family />} />
+          <Route path='/Fantasy' element={<Fantasy />} />
+          <Route path='/History' element={<History />} />
+          <Route path='/Horror' element={<Horror />} />
+          <Route path='/Music' element={<Music />} />
+          <Route path='/Mystery' element={<Mystery />} />
+          <Route path='/Romance' element={<Romance />} />
+          <Route path='/Science Fiction' element={<ScienceFiction />} />
+          <Route path='/TV Movie' element={<TvMovie />} />
+          <Route path='/Thriller' element={<Thriller />} />
+          <Route path='/War' element={<War />} />
+          <Route path='/Western' element={<Western />} />
+        </Route>
       </Routes>
 
       {/* footer */}
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   )
 }

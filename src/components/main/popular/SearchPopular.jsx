@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import MovieGrid from '../../movieGrid/MovieGrid';
 import Pagination from '../../pagination/Pagination';
 import Dropdown from '../../dropdown/Dropdown';
-import { Link } from 'react-router-dom';
-import MovieCard from '../../movieCard/MovieCard';
 
 const Popular = () => {
   const [page, setPage] = useState(1);
@@ -36,20 +34,8 @@ const Popular = () => {
      <Dropdown currentCategory={currentCategory} setCurrentCategory={setCurrentCategory} />
 
       <div className='flex justify-center flex-wrap gap-10 pb-4 pt-4'>
-        {movies.map((movie, index) => (
-          <>
-            {/* <div className='hidden'>
-              <MovieCard movie={movie} index={index} />
-            </div>
-
-            <button onClick={handleClick}>
-              <MovieGrid key={movie.id} movie={movie} />
-            </button> */}
-
-            <Link to='/movie-card'>
-              <MovieGrid key={movie.id} movie={movie} />
-            </Link>
-          </>
+        {movies.map((movie) => (
+          <MovieGrid key={movie.id} movie={movie} />
         ))}
       </div>
       <Pagination currentPage={page} setPage={setPage} totalPage={data.total_pages} />
