@@ -14,7 +14,9 @@ const About = () => {
         <p className="mb-2">
           To start exploring a vast array of movies, create an account now!
         </p>
-        <Link to='/sign-up' className="bg-black text-white rounded-md px-4 py-2">Register</Link>
+        <Link to='/sign-up'>
+          <button className="bg-[#020F10] hover:scale-105 duration-300 text-white rounded-md px-4 py-2">Register</button>
+        </Link>
       </div>
     </section>
   )

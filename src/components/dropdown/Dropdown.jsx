@@ -42,7 +42,7 @@ const Dropdown = ({ currentCategory, setCurrentCategory }) => {
             currentCategory !== 'Popular' &&
             <Link to='/popular'>
               <h2 
-                className="p-4 font-[500] tracking-wider hover:bg-black duration-300 hover:text-white"
+                className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
                 onClick={handleCategory}
                 key='popular'
               >
@@ -54,7 +54,7 @@ const Dropdown = ({ currentCategory, setCurrentCategory }) => {
             currentCategory !== 'Top Rated' &&
             <Link to='/top-rated'>
               <h2 
-                className="p-4 font-[500] tracking-wider hover:bg-black duration-300 hover:text-white"
+                className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
                 onClick={handleCategory}
                 key='top-rated'
               >
@@ -66,7 +66,7 @@ const Dropdown = ({ currentCategory, setCurrentCategory }) => {
             currentCategory !== 'Upcoming' &&
             <Link to='/upcoming'>
               <h2 
-                className="p-4 font-[500] tracking-wider hover:bg-black duration-300 hover:text-white"
+                className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
                 onClick={handleCategory}
                 key='upcoming'
               >
@@ -80,7 +80,7 @@ const Dropdown = ({ currentCategory, setCurrentCategory }) => {
             {
               currentCategory !== genre.name &&
                 <h2 
-                  className="p-4 font-[500] tracking-wider hover:bg-black duration-300 hover:text-white" 
+                  className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white" 
                   onClick={handleCategory}
                   key={genre.id}
                 >

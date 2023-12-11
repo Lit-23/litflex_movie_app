@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from 'react';
 
 // Layout
 import Layout from "./Layout";
@@ -35,15 +34,11 @@ import Thriller from "./components/searchMovie/searchByGenre/Thriller";
 import War from "./components/searchMovie/searchByGenre/War";
 import Western from "./components/searchMovie/searchByGenre/Western";
 
-import MovieCard from "./components/movieCard/MovieCard";
 import SignUp from "./components/authentication/SignUp";
 import SignIn from "./components/authentication/SignIn";
 import About from "./components/about/About";
 
 function App() {
-  // const [isSearching, setIsSearching] = useState(false);
-  // useEffect(()=>{setIsSearching(false)}, [])
-
   return (
     <BrowserRouter>
       <Routes>
@@ -57,9 +52,6 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/sign-in' element={<SignIn />} />
-
-          {/* route for specific movie card */}
-          <Route path='/movie-card' element={<MovieCard />} />
 
           {/* Search specific movies */}
           <Route path='/search-movies' element={<SearchMovies />} />

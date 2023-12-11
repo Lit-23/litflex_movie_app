@@ -44,7 +44,7 @@ const Account = ({ userDisplayName, setIsSearching, setQuery }) => {
           {
             <Link to='#' onClick={() => {setIsOpen(false)}}>
               <h2 
-                className="p-4 font-[500] tracking-wider hover:bg-black duration-300 hover:text-white"
+                className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
                 key='account'
               >
                 {displayname}
@@ -54,7 +54,7 @@ const Account = ({ userDisplayName, setIsSearching, setQuery }) => {
           {
             <Link to='#' onClick={() => {setIsOpen(false)}}>
               <h2 
-                className="p-4 font-[500] tracking-wider hover:bg-black duration-300 hover:text-white"
+                className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
                 key='top-rated'
               >
                 Settings
@@ -63,7 +63,7 @@ const Account = ({ userDisplayName, setIsSearching, setQuery }) => {
           }
           {
             <h2 
-              className="p-4 font-[500] tracking-wider hover:bg-black duration-300 hover:text-white"
+              className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
               key='logout'
               onClick={handleLogout}
             >

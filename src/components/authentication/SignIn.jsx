@@ -50,7 +50,7 @@ const SignIn = () => {
           
           <button 
             type='submit'
-            className='mx-5 mt-2 p-3 rounded-md bg-black text-white'
+            className='mx-5 mt-2 p-3 rounded-md bg-[#020F10] hover:scale-105 duration-300 text-white'
           >
             { loading ? 'Loading...' : 'Sign In' }
           </button>

@@ -20,32 +20,20 @@ const Pagination = ({ currentPage, setPage, totalPage }) => {
     <div className="flex justify-center items-center gap-5 font-bold text-white">
       <div>
         <button 
-          className="bg-black px-3 py-2 rounded-md"
+          className="bg-[#020F10] px-3 py-2 rounded-md hover:scale-105 duration-100 active:translate-x-1"
           onClick={handlePrev}
         >
           PREV
         </button>
       </div>
       <ul className="flex gap-3">
-        <li className="bg-black px-4 py-2 rounded-md">
+        <li className="bg-[#020F10] px-4 py-2 rounded-md">
           <button>{currentPage}</button>
         </li>
-        {/* <li className="bg-gray-200 px-4 py-2 rounded-md">
-          <button>{currentPage + 1}</button>
-        </li>
-        <li className="bg-gray-200 px-4 py-2 rounded-md">
-          <button>{currentPage + 2}</button>
-        </li>
-        <li className="bg-gray-200 px-4 py-2 rounded-md">
-          <button>{currentPage + 3}</button>
-        </li>
-        <li className="bg-gray-200 px-4 py-2 rounded-md">
-          <button>{currentPage + 4}</button>
-        </li> */}
       </ul>
       <div>
         <button 
-          className="bg-black px-3 py-2 rounded-md"
+          className="bg-[#020F10] px-3 py-2 rounded-md hover:scale-105 duration-100 active:translate-x-1"
           onClick={handleNext}
         >
           NEXT

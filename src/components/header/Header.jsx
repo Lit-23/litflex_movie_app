@@ -63,7 +63,7 @@ const Header = ({ isSearching, setIsSearching }) => {
 
   return (
     <>
-      <header className="flex fixed top-0 right-0 left-0 bg-white justify-between items-center px-5 py-3 shadow-md z-10">
+      <header className="bg-[#EEFDFD] flex fixed top-0 right-0 left-0 justify-between items-center px-5 py-3 shadow-md z-10">
         <Link to='/' onClick={() => {setIsSearching(false); setQuery('');}}>
           <h1 className="font-bold text-xl">LitFlix</h1>
         </Link>
