@@ -15,13 +15,13 @@ const MovieList = ({ movie }) => {
 
   return (
     <>
-      <div className='min-w-[10rem] bg-black rounded-md cursor-pointer hover:scale-105 duration-300' onClick={openModal}>
+      <div className='bg-black rounded-md cursor-pointer hover:scale-105 duration-300' onClick={openModal}>
         <img 
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          src={ movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : 'https://via.placeholder.com/300'}
           alt={movie.title}
-          className='rounded-t-md'
+          className='rounded-t-md h-[236px] w-[10rem]'
         />
-        <div className='px-1 text-white py-1'>
+        <div className='px-1 text-white py-1 w-[10rem]'>
           <h2 className='font-bold text-ellipsis overflow-hidden whitespace-nowrap'>{movie.title}</h2>
           <div className='flex justify-between text-sm text-gray-400'>
             <p>⭐({(movie.vote_average).toFixed(1)})</p>

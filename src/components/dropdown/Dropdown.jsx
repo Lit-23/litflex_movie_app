@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { caretUp, caretDown } from '../../assets/icons';
 
-const apiUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=a20b0851681cb1cbe3ad6e2eafb80bc8';
+const apiUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${import.meta.env.VITE_APP_TMDB_API_KEY}`;
 
 const Dropdown = ({ currentCategory, setCurrentCategory }) => {
   const [genres, setGenres] = useState([]);

@@ -46,10 +46,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* header */}
-      {/* <Header isSearching={isSearching} setIsSearching={setIsSearching}/> */}
-
-      {/* routes */}
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Main />} />
@@ -90,9 +86,6 @@ function App() {
           <Route path='/Western' element={<Western />} />
         </Route>
       </Routes>
-
-      {/* footer */}
-      {/* <Footer /> */}
     </BrowserRouter>
   )
 }

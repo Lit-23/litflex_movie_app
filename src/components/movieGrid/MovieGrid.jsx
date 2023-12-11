@@ -15,11 +15,11 @@ const MovieGrid = ({ movie }) => {
 
   return (
     <>
-      <div className='max-w-[10rem] bg-black rounded-md cursor-pointer hover:scale-105 duration-300' onClick={openModal}>
+      <div className='w-[10rem] h-[18rem] bg-black rounded-md cursor-pointer hover:scale-105 duration-300' onClick={openModal}>
         <img 
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          src={ movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : 'https://via.placeholder.com/300'}
           alt={movie.title}
-          className='rounded-t-md'
+          className='rounded-t-md h-[236px] w-full'
         />
         <div className='px-1 text-white py-1'>
           <h2 className='font-bold text-ellipsis overflow-hidden whitespace-nowrap'>{movie.title}</h2>
@@ -61,7 +61,14 @@ const MovieGrid = ({ movie }) => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    {movie.title}<span className='text-gray-500 font-[400]'>({movie.release_date.split('-')[0]})</span> <br />
+                    {movie.title}
+                    <span className='text-gray-500 font-[400]'>
+                      ({
+                        movie.release_date 
+                          ? movie.release_date.split('-')[0]
+                          : 'Unknown release date'
+                      })
+                    </span> <br />
                     <span className='text-sm text-gray-500 font-[400]'>{movie.release_date}({(movie.original_language).toUpperCase()}) • ⭐({movie.vote_average})</span>
                   </Dialog.Title>
                   <div className="mt-2">

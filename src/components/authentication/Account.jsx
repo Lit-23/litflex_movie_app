@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import firebaseApp from './firebaseConfig';
 
-const Account = ({ userDisplayName }) => {
+const Account = ({ userDisplayName, setIsSearching, setQuery }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [displayname, setDisplayname] = useState('');
   const navigate = useNavigate();
@@ -14,11 +14,12 @@ const Account = ({ userDisplayName }) => {
 
   function handleIsOpen() {
     setIsOpen((prevState) => !prevState);
-    console.log(isOpen)
   };
 
   const handleLogout = async () => {
     const auth = getAuth(firebaseApp);
+    setIsSearching(false); 
+    setQuery('');
     
     await signOut(auth).then(() => {
       // Sign-out successful.
