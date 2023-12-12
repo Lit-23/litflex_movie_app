@@ -44,38 +44,38 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='/popular' element={<SearchPopular />} />
-          <Route path='/top-rated' element={<SearchTopRated />} />
-          <Route path='/upcoming' element={<SearchUpcoming />} />
+          <Route path='popular' element={<SearchPopular />} />
+          <Route path='top-rated' element={<SearchTopRated />} />
+          <Route path='upcoming' element={<SearchUpcoming />} />
 
           {/* Authentication */}
-          <Route path='/about' element={<About />} />
-          <Route path='/sign-up' element={<SignUp />} />
-          <Route path='/sign-in' element={<SignIn />} />
+          <Route path='about' element={<About />} />
+          <Route path='sign-up' element={<SignUp />} />
+          <Route path='sign-in' element={<SignIn />} />
 
           {/* Search specific movies */}
-          <Route path='/search-movies' element={<SearchMovies />} />
+          <Route path='search-movies' element={<SearchMovies />} />
 
           {/* Search by Genres */}
-          <Route path='/Action' element={<Action />} />
-          <Route path='/Adventure' element={<Adventure />} />
-          <Route path='/Animation' element={<Animation />} />
-          <Route path='/Comedy' element={<Comedy />} />
-          <Route path='/Crime' element={<Crime />} />
-          <Route path='/Documentary' element={<Documentary />} />
-          <Route path='/Drama' element={<Drama />} />
-          <Route path='/Family' element={<Family />} />
-          <Route path='/Fantasy' element={<Fantasy />} />
-          <Route path='/History' element={<History />} />
-          <Route path='/Horror' element={<Horror />} />
-          <Route path='/Music' element={<Music />} />
-          <Route path='/Mystery' element={<Mystery />} />
-          <Route path='/Romance' element={<Romance />} />
-          <Route path='/Science Fiction' element={<ScienceFiction />} />
-          <Route path='/TV Movie' element={<TvMovie />} />
-          <Route path='/Thriller' element={<Thriller />} />
-          <Route path='/War' element={<War />} />
-          <Route path='/Western' element={<Western />} />
+          <Route path='Action' element={<Action />} />
+          <Route path='Adventure' element={<Adventure />} />
+          <Route path='Animation' element={<Animation />} />
+          <Route path='Comedy' element={<Comedy />} />
+          <Route path='Crime' element={<Crime />} />
+          <Route path='Documentary' element={<Documentary />} />
+          <Route path='Drama' element={<Drama />} />
+          <Route path='Family' element={<Family />} />
+          <Route path='Fantasy' element={<Fantasy />} />
+          <Route path='History' element={<History />} />
+          <Route path='Horror' element={<Horror />} />
+          <Route path='Music' element={<Music />} />
+          <Route path='Mystery' element={<Mystery />} />
+          <Route path='Romance' element={<Romance />} />
+          <Route path='Science Fiction' element={<ScienceFiction />} />
+          <Route path='TV Movie' element={<TvMovie />} />
+          <Route path='Thriller' element={<Thriller />} />
+          <Route path='War' element={<War />} />
+          <Route path='Western' element={<Western />} />
         </Route>
       </Routes>
     </BrowserRouter>
