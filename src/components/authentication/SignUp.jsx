@@ -49,7 +49,25 @@ const SignUp = () => {
       <div className='w-[550px] max-sm:w-full'>
         <h1 className='text-center font-bold tracking-wider text-2xl pt-5 pb-2'>Sign Up</h1>
         <form className='flex flex-col' onSubmit={handleRegister}>
-          <input 
+          <div className="flex max-md:flex-col md:gap-2 md:mx-5 md:my-2">
+            {/* md:gap-2 md:mx-5 md:my-3 */}
+            <input 
+              className='bg-gray-200 md:flex-1 p-3 max-md:mx-5 max-md:my-2 rounded-md' 
+              type="text" 
+              placeholder='First Name' 
+              value={firstname} 
+              onChange={(e) => setFirstname(e.target.value)}
+            />
+            <input 
+              className='bg-gray-200 md:flex-1 p-3 max-md:mx-5 max-md:my-2 rounded-md' 
+              type="text" 
+              placeholder='Last Name'  
+              value={lastname} 
+              onChange={(e) => setLastname(e.target.value)}
+            />
+          </div>
+
+          {/* <input 
             className='bg-gray-200 p-3 mx-5 my-3 rounded-md' 
             type="text" 
             placeholder='First Name' 
@@ -62,23 +80,24 @@ const SignUp = () => {
             placeholder='Last Name'  
             value={lastname} 
             onChange={(e) => setLastname(e.target.value)}
-          />
+          /> */}
+
           <input 
-            className='bg-gray-200 p-3 mx-5 my-3 rounded-md' 
+            className='bg-gray-200 p-3 mx-5 my-2 rounded-md' 
             type="email" 
             placeholder='Email' 
             value={email} 
             onChange={(e) => setEmail(e.target.value)}
           />
           <input 
-            className='bg-gray-200 p-3 mx-5 my-3 rounded-md' 
+            className='bg-gray-200 p-3 mx-5 my-2 rounded-md' 
             type="password" 
             placeholder='Password' 
             value={password} 
             onChange={(e) => setPassword(e.target.value)}
           />
           <input 
-            className='bg-gray-200 p-3 mx-5 my-3 rounded-md' 
+            className='bg-gray-200 p-3 mx-5 my-2 rounded-md' 
             type="password" 
             placeholder='Confirm Password' 
             value={confirmPassword} 

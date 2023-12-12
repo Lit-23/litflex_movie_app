@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Layout
 import Layout from "./Layout";
 
-import Main from "./components/main/Main";
+import Home from "./components/main/Home";
 
 // Search Specific Movies
 import SearchMovies from "./components/searchMovie/SearchMovie";
@@ -43,7 +43,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<Main />} />
+          <Route index element={<Home />} />
           <Route path='/popular' element={<SearchPopular />} />
           <Route path='/top-rated' element={<SearchTopRated />} />
           <Route path='/upcoming' element={<SearchUpcoming />} />

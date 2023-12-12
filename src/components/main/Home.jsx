@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 import authStateObserver from '../authentication/authStateObserver'
 
-export default function Main() {
+export default function Home() {
   const [authenticated, setAuthenticated] = useState(false);
   const [userDisplayName, setUserDisplayName] = useState('');
 
