@@ -96,7 +96,7 @@ const Header = ({ isSearching, setIsSearching }) => {
         isSearching 
         && 
         <div className='px-5 mt-20 min-h-[85vh]'>
-          <Dropdown currentCategory={currentCategory} setCurrentCategory={setCurrentCategory} />
+          <Dropdown currentCategory={currentCategory} setCurrentCategory={setCurrentCategory} setIsSearching={setIsSearching} setQuery={setQuery}/>
 
           {
             `${movies}` 

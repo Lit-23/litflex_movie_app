@@ -4,7 +4,7 @@ import { caretUp, caretDown } from '../../assets/icons';
 
 const apiUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=a20b0851681cb1cbe3ad6e2eafb80bc8`;
 
-const Dropdown = ({ currentCategory, setCurrentCategory }) => {
+const Dropdown = ({ currentCategory, setCurrentCategory, setIsSearching, setQuery }) => {
   const [genres, setGenres] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -43,7 +43,11 @@ const Dropdown = ({ currentCategory, setCurrentCategory }) => {
             <Link to='/popular'>
               <h2 
                 className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
-                onClick={handleCategory}
+                onClick={() => {
+                  handleCategory(); 
+                  setIsSearching(false); 
+                  setQuery('');
+                }}
                 key='popular'
               >
                 Popular
@@ -55,7 +59,11 @@ const Dropdown = ({ currentCategory, setCurrentCategory }) => {
             <Link to='/top-rated'>
               <h2 
                 className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
-                onClick={handleCategory}
+                onClick={() => {
+                  handleCategory(); 
+                  setIsSearching(false); 
+                  setQuery('');
+                }}
                 key='top-rated'
               >
                 Top Rated
@@ -67,7 +75,11 @@ const Dropdown = ({ currentCategory, setCurrentCategory }) => {
             <Link to='/upcoming'>
               <h2 
                 className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
-                onClick={handleCategory}
+                onClick={() => {
+                  handleCategory(); 
+                  setIsSearching(false); 
+                  setQuery('');
+                }}
                 key='upcoming'
               >
                 Upcoming
@@ -81,7 +93,11 @@ const Dropdown = ({ currentCategory, setCurrentCategory }) => {
               currentCategory !== genre.name &&
                 <h2 
                   className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white" 
-                  onClick={handleCategory}
+                  onClick={() => {
+                    handleCategory(); 
+                    setIsSearching(false); 
+                    setQuery('');
+                  }}
                   key={genre.id}
                 >
                   {genre.name}
