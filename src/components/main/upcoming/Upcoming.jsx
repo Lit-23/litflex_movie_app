@@ -4,7 +4,7 @@ import { caretRight } from '../../../assets/icons';
 
 import MovieList from '../../movieList/MovieList';
 
-const API_URL = `https://api.themoviedb.org/3/movie/upcoming?page=1&api_key=${import.meta.env.VITE_APP_TMDB_API_KEY}`;
+const API_URL = `https://api.themoviedb.org/3/movie/upcoming?page=1&api_key=a20b0851681cb1cbe3ad6e2eafb80bc8`;
 
 const Upcoming = () => {
   const [movies, setMovies] = useState([]);

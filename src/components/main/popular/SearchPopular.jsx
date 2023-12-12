@@ -10,7 +10,7 @@ const Popular = () => {
   const [data, setData] = useState([]);
   const [movies, setMovies] = useState([]);
 
-  const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&page=${page}&api_key=${import.meta.env.VITE_APP_TMDB_API_KEY}`;
+  const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&page=${page}&api_key=a20b0851681cb1cbe3ad6e2eafb80bc8`;
   const searchMovies = async () => {
     const response = await fetch(`${API_URL}`);
     const data = await response.json();
