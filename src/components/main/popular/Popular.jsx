@@ -33,15 +33,15 @@ const Popular = () => {
 
       <div className='px-5 mt-5'>
         <Link to='/popular'>
-          <h1 className='font-bold text-[1.3rem]'>What's Popular</h1>
+          <h1 className='font-[500] text-[1.3rem] max-[769px]:text-[17.4px] max-[640px]:text-sm'>What's Popular</h1>
         </Link>
 
-        <div className='flex gap-3 pb-4 pt-2 overflow-auto'>
+        <div className='flex gap-3 min-[641px]:pb-4 pb-2 min-[641px]:pt-2 pt-1 overflow-auto'>
           {movies.map((movie) => (
             <MovieList key={movie.id} movie={movie} />
           ))}
           <Link to='/popular'>
-            <button className='font-bold w-36 hover:opacity-75 flex justify-center items-center mt-[140px]'>
+            <button className='font-[500] w-36 max-[768px]:w-[109.5px] max-[640px]:w-[75px] hover:opacity-75 flex justify-center items-center mt-[110px] max-[768px]:mt-[82px] max-[640px]:mt-[55px] max-[769px]:text-[14px] max-[640px]:text-[10px]'>
               View more
               <img src={caretRight} alt="right-arrow" />
             </button>

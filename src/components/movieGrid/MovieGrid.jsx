@@ -15,17 +15,20 @@ const MovieGrid = ({ movie }) => {
 
   return (
     <>
-      <div className='bg-[#020F10] w-[10rem] h-[18rem] rounded-md cursor-pointer hover:scale-105 duration-300' onClick={openModal}>
+      <div className='cursor-pointer hover:scale-105 duration-300' onClick={openModal}>
         <img 
           src={ movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : 'https://via.placeholder.com/300'}
           alt={movie.title}
-          className='rounded-t-md h-[236px] w-full'
+          className='rounded-md h-[236px] w-[10rem] max-[768px]:h-[180px] max-[768px]:w-[7.5rem] max-[640px]:h-[120px] max-[640px]:w-[5rem]'
         />
-        <div className='px-1 text-white py-1'>
-          <h2 className='font-bold text-ellipsis overflow-hidden whitespace-nowrap'>{movie.title}</h2>
-          <div className='flex justify-between text-sm text-gray-400'>
+
+        <div className='px-1 min-[641px]:py-1 w-[10rem] max-[768px]:w-[7.5rem] max-[640px]:w-[5rem]'>
+          <h2 className='font-[500] text-ellipsis overflow-hidden whitespace-nowrap max-[768px]:text-[12px] max-[640px]:text-[10px]'>{movie.title}</h2>
+
+          <div className='text-gray-600 flex justify-between text-[12px] max-[768px]:text-[10px] max-[640px]:text-[8px]'>
             <p>⭐({(movie.vote_average).toFixed(1)})</p>
-            <p>{movie.release_date}</p>
+            <p className='min-[641px]:hidden'>{movie.release_date.split('-')[0]}</p>
+            <p className='max-[640px]:hidden'>{movie.release_date}</p>
           </div>
         </div>
       </div>
