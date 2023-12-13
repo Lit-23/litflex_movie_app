@@ -30,8 +30,8 @@ const Banner = ({ movie }) => {
           </div> 
 
         </div>
-        <h2 className='font-bold text-2xl max-[768px]:text-2xl mb-1 max-[640px]:text-base'>Overview</h2>
-        <p className='min-[769px]:text-lg max-[640px]:text-[10px]'>{movie.overview}</p>
+        <h2 className='font-bold text-2xl max-[768px]:text-2xl md:mb-1 max-[640px]:text-base'>Overview</h2>
+        <p className='min-[769px]:text-lg max-[640px]:text-xs'>{movie.overview}</p>
       </div>
     </section>
   )

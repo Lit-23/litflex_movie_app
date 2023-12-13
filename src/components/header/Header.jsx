@@ -82,14 +82,12 @@ const Header = ({ isSearching, setIsSearching }) => {
               id="query-input"
               type="text" 
               placeholder="Search movies" 
-              className={`text-[13px] pl-4 py-2 max-md:p-0 max-md:w-0 rounded-full bg-gray-200 focus:border-none focus:outline-none ${showInput ? 'max-md:w-full max-md:pl-4 max-md:py-2 duration-500' : ''}`}  
-              // ${showInput ? 'pl-4' : 'w-0'}
+              className={`text-[13px] pl-4 py-2 max-[768px]:p-0 max-[768px]:w-0 rounded-full bg-gray-200 focus:border-none focus:outline-none ${showInput ? 'max-[768px]:w-full max-[768px]:pl-4 max-[768px]:py-2 duration-500' : ''}`}  
               value={query}
               onChange={(e)=>setQuery(e.target.value)}
             />
             <button 
-              className={`w-[35px] pr-4 max-md:p-2 ${showInput ? 'max-md:p-0 max-md:pr-4 duration-500' : ''}`} 
-              // ${showInput ? 'pr-4' : 'p-2'}
+              className={`w-[35px] pr-4 max-[768px]:p-2`} 
               onClick={handleSearch}
             >
               <img src={searchIcon} alt="search-icon" className="w-full" />

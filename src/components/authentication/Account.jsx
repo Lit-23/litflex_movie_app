@@ -31,7 +31,7 @@ const Account = ({ userDisplayName, setIsSearching, setQuery }) => {
   }
 
   return (
-    <>
+    <article className="relative">
       <img 
         src={displayname && `https://ui-avatars.com/api/?name=${displayname}`} 
         alt="acount" 
@@ -39,11 +39,11 @@ const Account = ({ userDisplayName, setIsSearching, setQuery }) => {
         onClick={handleIsOpen}
       />
       {isOpen && 
-        <div className="absolute flex flex-col h-[180px] bg-gray-200 w-[12rem] mt-[250px] ml-16 rounded-lg shadow-lg">
+        <div className="absolute flex flex-col bg-gray-200 w-36 md:w-48 py-2 mt-4 md:mt-5 right-0 rounded-lg shadow-lg">
           {
             <Link to='#' onClick={() => {setIsOpen(false)}}>
               <h2 
-                className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
+                className="max-[640px]:text-xs py-2 md:px-4 px-3 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white text-ellipsis overflow-hidden whitespace-nowrap"
                 key='account'
               >
                 {displayname}
@@ -53,7 +53,7 @@ const Account = ({ userDisplayName, setIsSearching, setQuery }) => {
           {
             <Link to='#' onClick={() => {setIsOpen(false)}}>
               <h2 
-                className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
+                className="max-[640px]:text-xs py-2 md:px-4 px-3 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
                 key='top-rated'
               >
                 Settings
@@ -62,7 +62,7 @@ const Account = ({ userDisplayName, setIsSearching, setQuery }) => {
           }
           {
             <h2 
-              className="p-4 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
+              className="max-[640px]:text-xs py-2 md:px-4 px-3 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white"
               key='logout'
               onClick={handleLogout}
             >
@@ -71,7 +71,7 @@ const Account = ({ userDisplayName, setIsSearching, setQuery }) => {
           }
         </div>
       }
-    </>
+    </article>
   )
 }
 
