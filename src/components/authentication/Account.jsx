@@ -33,10 +33,9 @@ const Account = ({ userDisplayName, setIsSearching, setQuery }) => {
   return (
     <>
       <img 
-        src={displayname ? `https://ui-avatars.com/api/?name=${displayname}` : 'https://ui-avatars.com/api/?name=Account'} 
+        src={displayname && `https://ui-avatars.com/api/?name=${displayname}`} 
         alt="acount" 
-        width={36}
-        className='rounded-full'
+        className='rounded-full w-[36px]'
         onClick={handleIsOpen}
       />
       {isOpen && 

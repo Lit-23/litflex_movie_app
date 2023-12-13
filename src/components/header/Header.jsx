@@ -31,16 +31,24 @@ const Header = ({ isSearching, setIsSearching }) => {
     setMovies(data.results);
   };
 
+  // functionality for responsive design
+  const [mediumScreen, setMediumScreen] = useState(false);
+  const [showInput, setShowInput] = useState(false);
+  const handleScreenDisplay = () => {};
+
   // functionality for searching specific movie
   const handleSearch = () => {
-    if(query !== '' && authenticated) {
+    if(showInput === false) {
+      setShowInput(true);
+    }
+    if(!authenticated) {
+      openModal();
+      setQuery('');
+    }
+    if(query !== '' && authenticated && showInput) {
       searchMovies(query);
       setPage(1);
       setIsSearching(true);
-    }
-    else if(query !== '') {
-      openModal();
-      setQuery('');
     }
   };
   
@@ -63,21 +71,27 @@ const Header = ({ isSearching, setIsSearching }) => {
 
   return (
     <>
-      <header className="bg-[#EEFDFD] flex fixed top-0 right-0 left-0 justify-between items-center px-5 py-3 shadow-md z-10">
+      <header className="bg-[#EEFDFD] flex fixed top-0 right-0 left-0 justify-between items-center px-5 py-3 max-[641px]:py-2 shadow-md z-10">
         <Link to='/' onClick={() => {setIsSearching(false); setQuery('');}}>
-          <h1 className="font-bold text-xl">LitFlix</h1>
+          <h1 className={`font-bold text-xl max-[640px]:text-base ${showInput && 'max-[320px]:hidden'}`}>LitFlix</h1>
         </Link>
         <div className="flex items-center gap-2">
+
           <div className="flex bg-gray-200 rounded-full active:outline shadow-md">
             <input 
               id="query-input"
               type="text" 
               placeholder="Search movies" 
-              className="text-[13px] px-4 py-2 rounded-full bg-gray-200 focus:border-none focus:outline-none" 
+              className={`text-[13px] pl-4 py-2 max-md:p-0 max-md:w-0 rounded-full bg-gray-200 focus:border-none focus:outline-none ${showInput ? 'max-md:w-full max-md:pl-4 max-md:py-2 duration-500' : ''}`}  
+              // ${showInput ? 'pl-4' : 'w-0'}
               value={query}
               onChange={(e)=>setQuery(e.target.value)}
             />
-            <button className="w-[35px] pr-4" onClick={handleSearch}>
+            <button 
+              className={`w-[35px] pr-4 max-md:p-2 ${showInput ? 'max-md:p-0 max-md:pr-4 duration-500' : ''}`} 
+              // ${showInput ? 'pr-4' : 'p-2'}
+              onClick={handleSearch}
+            >
               <img src={searchIcon} alt="search-icon" className="w-full" />
             </button>
           </div>
