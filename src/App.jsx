@@ -42,11 +42,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route exact path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='popular' element={<SearchPopular />} />
-          <Route path='top-rated' element={<SearchTopRated />} />
-          <Route path='upcoming' element={<SearchUpcoming />} />
+          <Route exact path='/popular' element={<SearchPopular />} />
+          <Route exact path='/top-rated' element={<SearchTopRated />} />
+          <Route exact path='/upcoming' element={<SearchUpcoming />} />
 
           {/* Authentication */}
           <Route path='about' element={<About />} />
