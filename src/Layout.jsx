@@ -7,10 +7,22 @@ import Header from "./components/header/Header";
 function App() {
   const [isSearching, setIsSearching] = useState(false);
 
+  // props for Account componet
+  const [openAccount, setOpenAccount] = useState(false);
+
+  const handleClick = () => {
+    if(openAccount) {
+      setOpenAccount(false);
+    };
+  }
+
   return (
-    <main>
+    <main onClick={handleClick}>
       {/* header */}
-      <Header isSearching={isSearching} setIsSearching={setIsSearching}/>
+      <Header 
+        isSearching={isSearching} setIsSearching={setIsSearching} 
+        openAccount={openAccount} setOpenAccount={setOpenAccount}
+      />
 
       {/* outlet to render routes */}
       {

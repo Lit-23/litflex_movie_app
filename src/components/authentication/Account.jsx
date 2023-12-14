@@ -1,19 +1,13 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import firebaseApp from './firebaseConfig';
 
-const Account = ({ userDisplayName, setIsSearching, setQuery }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [displayname, setDisplayname] = useState('');
+const Account = ({ userDisplayName, setIsSearching, setQuery, openAccount, setOpenAccount }) => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setDisplayname(userDisplayName);
-  }, [])
-
   function handleIsOpen() {
-    setIsOpen((prevState) => !prevState);
+    setOpenAccount((prevState) => !prevState);
   };
 
   const handleLogout = async () => {
@@ -33,12 +27,12 @@ const Account = ({ userDisplayName, setIsSearching, setQuery }) => {
   return (
     <article className="relative">
       <img 
-        src={displayname && `https://ui-avatars.com/api/?name=${displayname}`} 
+        src={`https://ui-avatars.com/api/?name=${userDisplayName ? userDisplayName : 'My+Account'}`} 
         alt="acount" 
-        className='rounded-full w-[36px]'
+        className='rounded-full w-[36px] cursor-pointer'
         onClick={handleIsOpen}
       />
-      {isOpen && 
+      {openAccount && 
         <div className="absolute flex flex-col bg-gray-200 w-36 md:w-48 py-2 mt-4 md:mt-5 right-0 rounded-lg shadow-lg">
           {
             <Link to='#' onClick={() => {setIsOpen(false)}}>
@@ -46,7 +40,7 @@ const Account = ({ userDisplayName, setIsSearching, setQuery }) => {
                 className="max-[640px]:text-xs py-2 md:px-4 px-3 font-[500] tracking-wider hover:bg-[#020F10] duration-300 hover:text-white text-ellipsis overflow-hidden whitespace-nowrap"
                 key='account'
               >
-                {displayname}
+                {userDisplayName ? userDisplayName : 'My Account'}
               </h2>
             </Link>
           }

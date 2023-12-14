@@ -8,7 +8,7 @@ import { searchIcon } from "../../assets/icons";
 import Dropdown from "../dropdown/Dropdown";
 import Pagination from "../pagination/Pagination";
 
-const Header = ({ isSearching, setIsSearching }) => {
+const Header = ({ isSearching, setIsSearching, openAccount, setOpenAccount }) => {
   // states for authentication
   const [authenticated, setAuthenticated] = useState(false);
   const [userDisplayName, setUserDisplayName] = useState('');
@@ -31,10 +31,7 @@ const Header = ({ isSearching, setIsSearching }) => {
     setMovies(data.results);
   };
 
-  // functionality for responsive design
-  const [mediumScreen, setMediumScreen] = useState(false);
   const [showInput, setShowInput] = useState(false);
-  const handleScreenDisplay = () => {};
 
   // functionality for searching specific movie
   const handleSearch = () => {
@@ -96,7 +93,7 @@ const Header = ({ isSearching, setIsSearching }) => {
 
           {
             authenticated
-              ? <Account userDisplayName={userDisplayName} setIsSearching={setIsSearching} setQuery={setQuery} />
+              ? <Account openAccount={openAccount} setOpenAccount={setOpenAccount} userDisplayName={userDisplayName} setIsSearching={setIsSearching} setQuery={setQuery} />
               : <Link to='/sign-in'>
                   <button className="text-blue-900 font-[500] hover:underline">Sign In</button>
                 </Link>
