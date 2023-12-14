@@ -37,7 +37,7 @@ const Dropdown = ({ currentCategory, setCurrentCategory, setIsSearching, setQuer
       </button>
 
       {isOpen && 
-        <div className="absolute flex flex-col md:py-2 py-3 overflow-auto min-[769px]:h-56 h-44 bg-gray-200 w-48 max-[768px]:w-36 max-[640px]:w-[120px] min-[769px]:mt-14 mt-11 rounded-lg shadow-lg">
+        <div className="absolute flex flex-col md:py-2 py-3 overflow-auto min-[769px]:h-56 h-44 bg-gray-200 w-48 max-[768px]:w-36 max-[640px]:w-[120px] min-[769px]:mt-14 mt-11 rounded-lg shadow-lg z-10">
           {
             currentCategory !== 'Popular' &&
             <Link to='/popular'>

@@ -38,7 +38,11 @@ import SignUp from "./components/authentication/SignUp";
 import SignIn from "./components/authentication/SignIn";
 import About from "./components/about/About";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 function App() {
+  AOS.init();
   return (
     <BrowserRouter>
       <Routes>

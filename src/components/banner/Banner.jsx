@@ -1,7 +1,12 @@
 const Banner = ({ movie }) => {
 
   return (
-    <section className='p-6 max-[640px]:p-3 mb-5 mx-5 flex flex-1 gap-10 bg-[#020F10] rounded-lg'>
+    <section 
+      className='p-6 max-[640px]:p-3 mb-5 mx-5 flex flex-1 gap-10 bg-[#020F10] rounded-lg'
+      data-aos="zoom-in"
+      data-aos-duration="800"
+      data-aos-easing="ease-in-sine"
+    >
       <div className="max-[768px]:hidden">
         <img 
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

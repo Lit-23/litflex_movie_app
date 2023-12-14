@@ -15,7 +15,12 @@ const MovieList = ({ movie }) => {
 
   return (
     <>
-      <div className='cursor-pointer hover:scale-105 duration-300' onClick={openModal}>
+      <div 
+        className='cursor-pointer hover:scale-105 duration-300' onClick={openModal}
+        data-aos="zoom-in"
+        data-aos-easing="ease-in-sine"
+        data-aos-duration="600"
+      >
         <img 
           src={ movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : 'https://via.placeholder.com/300'}
           alt={movie.title}
